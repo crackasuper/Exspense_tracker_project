@@ -143,7 +143,12 @@ def addmoney_(request):
             Catagory = request.POST['Catagory']
             add = AddMoney(user = user1,add_money = add_money, quantity = quantity, Date = Date,Catagory = Catagory)
             add.save()
-                        
+
+def books(request):
+    if request.method == 'POST':
+        return render(request, '/home/data.html')
+    else:
+        return redirect("/")
 
 
 
