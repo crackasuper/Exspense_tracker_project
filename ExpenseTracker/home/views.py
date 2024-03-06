@@ -151,8 +151,42 @@ def addmoney_(request):
             }
             return render(request, 'home/index.html', context)
         return redirect('/indx')
+<<<<<<< HEAD
+=======
+    
+def addmoney_update(request, id):
+    if request.session.has_key('is_logged'):
+        if request.method == 'POST':
+            add = AddMoney.objects.get(id = id)
+            add.add_money = request.POST['add_money']
+            add.quantity = request.POST['quantity']
+            add.Date = request.POST['Date']
+            add.Catagory = request.POST['Catagory']
+            add.save()
+            return redirect("/index")
+        return redirect("/home")
+    
 
-       
+
+def expense_edit(request):
+    if request.session.has_key('is_logged'):
+        addmoney_info = AddMoney.objects.get(id = id)
+        user_id = request.session["user_id"]
+        user1 = User.objects.get(id = user_id)
+        return render(request, 'home/expense_edit.html', {'addmoney_enfo' : addmoney_info})
+    return redirect("/home")
+
+def expense_delete(request, id):
+    if request.session.has_key('is_logged'):
+        addmoney_info = AddMoney.objects.get(id = id)
+        addmoney_info.delete()
+        return redirect("/index")
+    return redirect("/home")
+
+
+
+>>>>>>> 78bc906 (adding expense edit and delete views)
+
 
 
 
