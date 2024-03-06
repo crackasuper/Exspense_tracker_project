@@ -289,7 +289,8 @@ def check(request):
         return redirect("/reset_password")
 def info_year(request):
     todays_date = datetime.date.today()
-    one_week_ago = todays_date-datetime.timedelta(days=30*12)user_id = request.session["user_id"]
+    one_week_ago = todays_date-datetime.timedelta(days=30*12)
+    user_id = request.session["user_id"]
     user1 = User.objects.get(id=user_id)
     addmoney = AddMoney.objects.filter(user =
     user1,Date__gte=one_week_ago,Date__lte=todays_date)
