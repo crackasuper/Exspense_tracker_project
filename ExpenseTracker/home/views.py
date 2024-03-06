@@ -143,12 +143,16 @@ def addmoney_(request):
             Catagory = request.POST['Catagory']
             add = AddMoney(user = user1,add_money = add_money, quantity = quantity, Date = Date,Catagory = Catagory)
             add.save()
+            paginator = Paginator(AddMoney, 4)
+            page_number = request.GET.get('page')
+            page_obj = Paginator.get_page(paginator, page_number)
+            context = {
+                'page_obj' : page_obj
+            }
+            return render(request, 'home/index.html', context)
+        return redirect('/indx')
 
-def books(request):
-    if request.method == 'POST':
-        return render(request, '/home/data.html')
-    else:
-        return redirect("/")
+       
 
 
 
