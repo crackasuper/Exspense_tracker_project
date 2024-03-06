@@ -151,8 +151,7 @@ def addmoney_(request):
             }
             return render(request, 'home/index.html', context)
         return redirect('/indx')
-<<<<<<< HEAD
-=======
+
     
 def addmoney_update(request, id):
     if request.session.has_key('is_logged'):
@@ -183,9 +182,6 @@ def expense_delete(request, id):
         return redirect("/index")
     return redirect("/home")
 
-
-
->>>>>>> 78bc906 (adding expense edit and delete views)
 
 
 
