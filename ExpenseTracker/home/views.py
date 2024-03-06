@@ -203,6 +203,10 @@ def expense_month(request):
         for y in Catagory_list:finalrep[y]= get_expense_category_amount(y,"Expense")
     return JsonResponse({'expense_category_data': finalrep}, safe=False)
 
+def info(request):
+   return render(request,'home/info.html')
+
+
 
 
 
